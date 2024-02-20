@@ -1,2 +1,3 @@
 ﻿  Censer.cpp
+C:\Users\golov\Desktop\Censorship of bad words\Censorship of bad words\Censorship of bad words\Censer.cpp(40,12): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   Censorship of bad words.vcxproj -> C:\Users\golov\Desktop\Censorship of bad words\Censorship of bad words\x64\Debug\Censorship of bad words.exe

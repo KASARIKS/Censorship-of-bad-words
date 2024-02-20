@@ -35,8 +35,15 @@ namespace Censer
 		while (!bad_file.eof())
 		{
 			bad_file >> tmp_bad;
-			if (tmp_bad == text)
-				std::reverse(text.begin(), text.end());
+
+			// Censering text
+			int pos = text.find(tmp_bad);
+
+			if (pos != std::string::npos)
+			{
+				for (int i = pos; i < pos + tmp_bad.length(); ++i)
+					text[i] = '*';
+			}
 		}
 
 		this->text = text;
@@ -47,31 +54,9 @@ namespace Censer
 		return text;
 	}
 
-	std::vector<Word> TextPart::GetWords(void)
-	{
-		return words;
-	}
-
-	// Word methods
-	Word::Word(std::string word, Status status)
-	{
-		this->word = word;
-		this->status = status;
-	}
-
-	std::string Word::GetWord(void)
-	{
-		return word;
-	}
-
-	Status Word::GetStatus(void)
-	{
-		return status;
-	}
-
 	Text::Text(std::string out_name, std::string in_name)
 	{
-		out.open(out_name);
+		out.open(out_name, std::ios::trunc);
 		in.open(in_name);
 	}
 

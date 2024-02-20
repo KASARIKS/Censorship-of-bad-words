@@ -6,7 +6,7 @@
 namespace Censer
 {
 	enum Status { Normal, Bad };
-	const std::string bad_words_file = "bad_words.txt";
+	const std::string bad_words_file("filter_banned_russian.txt");
 	
 	// Count of words differnt statuses
 	class CountStatus
@@ -21,28 +21,14 @@ namespace Censer
 		int GetBad(void);
 	};
 
-	// Keep word and status
-	class Word
-	{
-	private:
-		std::string word;
-		Status status;
-	public:
-		Word(std::string word, Status status);
-		std::string GetWord(void);
-		Status GetStatus(void);
-	};
-
-	// Keep a part of text, words of this part.
+	// Keep a part of text.
 	class TextPart
 	{
 	private:
 		std::string text;
-		std::vector<Word> words;
 	public:
 		TextPart(std::string text);
 		std::string GetText(void);
-		std::vector<Word> GetWords(void);
 	};
 
 	// Keep file and number of differnt statuses
